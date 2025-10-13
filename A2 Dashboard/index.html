@@ -31,8 +31,8 @@
             <div class="pure-u-1 pure-u-md-1-4">
                 <!-- Top Left Chart -->
                 <div class="chart-container">
-                    <div class="chart-title">Business Distribution</div>
-                    <div id="business_chart" class="side-chart"></div>
+                    <div class="chart-title">Programming Language Usage</div>
+                    <div id="pie_chart" class="side-chart"></div>
                 </div>
                 
                 <!-- Bottom Left Chart -->
@@ -77,15 +77,17 @@
                 .then(function(result) {})
                 .catch(console.error);
             
-            // Placeholder for other charts - replace with your actual Vega files
-            vegaEmbed('#business_chart', 'js/pieChart.json')
+            // Embed pie chart (top left)
+            vegaEmbed('#pie_chart', 'js/pieChart.vg.json')
                 .then(function(result) {})
                 .catch(console.error);
             
+            // Embed box plot (bottom left)
             vegaEmbed('#jobs_chart', 'js/boxplot.vg.json')
                 .then(function(result) {})
                 .catch(console.error);
             
+            // Embed top suburbs chart (bottom right)
             vegaEmbed('#top_suburbs_chart', 'js/top_suburbs.vg.json')
                 .then(function(result) {})
                 .catch(console.error);

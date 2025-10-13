@@ -1,35 +1,72 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Pie chart of programming language usage proportions",
+  "width": 300,
+  "height": 300,
   "data": {
-    "url": "https://github.com/dist0001/Data-Visualisation-Repository/raw/cec697d4ed15486579f07e3570e38b759d6dc592/A2%20Dashboard/data/language_sums.csv",
+    "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/cec697d4ed15486579f07e3570e38b759d6dc592/A2%20Dashboard/data/language_sums.csv",
     "format": {
       "type": "csv"
     }
   },
+  "transform": [
+    {
+      "calculate": "datum.Proportion * 100",
+      "as": "percentage"
+    },
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{"field": "Proportion", "order": "descending"}]
+    }
+  ],
   "mark": {
     "type": "arc",
     "tooltip": true,
-    "outerRadius": 100
+    "innerRadius": 50,
+    "outerRadius": 120
   },
   "encoding": {
     "theta": {
       "field": "Proportion",
-      "type": "quantitative"
+      "type": "quantitative",
+      "stack": true,
+      "sort": {"field": "rank", "order": "ascending"}
     },
     "color": {
       "field": "Column",
       "type": "nominal",
+      "scale": {
+        "range": [
+          "#8dd3c7",
+          "#ffffb3", 
+          "#bebada",
+          "#fb8072",
+          "#80b1d3",
+          "#fdb462",
+          "#b3de69",
+          "#fccde5",
+          "#d9d9d9",
+          "#bc80bd",
+          "#ccebc5",
+          "#ffed6f"
+        ]
+      },
       "legend": {
-        "title": "Language"
-      }
+        "title": "Programming Languages",
+        "orient": "right",
+        "sort": {"field": "rank", "order": "ascending"}
+      },
+      "sort": {"field": "rank", "order": "ascending"}
+    },
+    "order": {
+      "field": "rank",
+      "type": "quantitative"
     },
     "tooltip": [
       {"field": "Column", "type": "nominal", "title": "Language"},
       {"field": "Sum", "type": "quantitative", "title": "Count"},
-      {"field": "Proportion", "type": "quantitative", "title": "Proportion", "format": ".2%"}
+      {"field": "Proportion", "type": "quantitative", "title": "Proportion", "format": ".1%"}
     ]
   },
-  "view": {"stroke": null},
-  "title": "Programming Language Usage (Pie Chart)"
+  "view": {"stroke": null}
 }
