@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 200,
+  "height": 200,
+  "title": "Business Count vs Data Science Job Count",
+  "data": {
+    "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/data/completeDf_projected.csv"
+  },
+  "params": [
+    {
+      "name": "max_business",
+      "value": 3000,
+      "bind": {
+        "input": "range",
+        "min": 100,
+        "max": 12000,
+        "step": 100,
+        "name": "x-axis range: "
+      }
+    },
+    {
+      "name": "max_jobs",
+      "value": 200,
+      "bind": {
+        "input": "range",
+        "min": 10,
+        "max": 200,
+        "step": 10,
+        "name": "y-axis range: "
+      }
+    }
+  ],
+  "transform": [
+    { "filter": "isValid(datum.jobCount) && isValid(datum.businessCount)" },
+    {
+      "filter": "datum.businessCount <= max_business && datum.jobCount <= max_jobs"
+    }
+  ],
+  "mark": {
+    "type": "point",
+    "size": 60,
+    "opacity": 0.6
+  },
+  "encoding": {
+    "x": {
+      "field": "businessCount",
+      "type": "quantitative",
+      "title": "Business Count",
+      "scale": { "type": "sqrt" },
+      "axis": { "grid": false }
+    },
+    "y": {
+      "field": "jobCount",
+      "type": "quantitative",
+      "title": "Data Science Job Count",
+      "scale": { "type": "sqrt" },
+      "axis": { "grid": false }
+    },
+    "color": {
+      "field": "SA2_NAME16",
+      "type": "nominal",
+      "legend": null
+    },
+    "tooltip": [
+      { "field": "SA2_NAME16", "type": "nominal", "title": "Suburb" },
+      { "field": "businessCount", "type": "quantitative", "title": "Business Count", "format": "," },
+      { "field": "jobCount", "type": "quantitative", "title": "Job Count", "format": "," }
+    ]
+  }
+}
