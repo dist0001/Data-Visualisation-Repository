@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Business and Job Distribution Dashboard</title>
+        <!-- Import Vega & Vega-Lite -->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+        
+        <!-- PureCSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+        
+        <!-- Your CSS file -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    </head>
+
+    <body>
+        <div class="pure-g dashboard-container">
+            <!-- Header -->
+            <div class="pure-u-1">
+                <div class="dashboard-title">
+                    <h1>Business Density and Job Distribution Analysis</h1>
+                    <p>Exploring the relationship between business presence and data science job opportunities across suburbs</p>
+                </div>
+            </div>
+            
+            <!-- Left Side Charts -->
+            <div class="pure-u-1 pure-u-md-1-4">
+                <!-- Top Left Chart -->
+                <div class="chart-container">
+                    <div class="chart-title">Business Distribution</div>
+                    <div id="business_chart" class="side-chart"></div>
+                </div>
+                
+                <!-- Bottom Left Chart -->
+                <div class="chart-container">
+                    <div class="chart-title">Job Count Statistics</div>
+                    <div id="jobs_chart" class="side-chart"></div>
+                </div>
+            </div>
+            
+            <!-- Center Main Map -->
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="chart-container">
+                    <div class="chart-title">Business Density and Job Distribution by Suburbs</div>
+                    <div id="main_map"></div>
+                </div>
+            </div>
+            
+            <!-- Right Side Charts -->
+            <div class="pure-u-1 pure-u-md-1-4">
+                <!-- Top Right Chart -->
+                <div class="chart-container">
+                    <div class="chart-title">Business vs Jobs Correlation</div>
+                    <div id="scatter_plot" class="side-chart"></div>
+                </div>
+                
+                <!-- Bottom Right Chart -->
+                <div class="chart-container">
+                    <div class="chart-title">Top Suburbs Analysis</div>
+                    <div id="top_suburbs_chart" class="side-chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // Embed the main map (center)
+            vegaEmbed('#main_map', 'js/map.vg.json')
+                .then(function(result) {})
+                .catch(console.error);
+            
+            // Embed scatter plot (top right)
+            vegaEmbed('#scatter_plot', 'js/scatterplot.vg.json')
+                .then(function(result) {})
+                .catch(console.error);
+            
+            // Placeholder for other charts - replace with your actual Vega files
+            vegaEmbed('#business_chart', 'js/business_distribution.vg.json')
+                .then(function(result) {})
+                .catch(console.error);
+            
+            vegaEmbed('#jobs_chart', 'js/jobs_statistics.vg.json')
+                .then(function(result) {})
+                .catch(console.error);
+            
+            vegaEmbed('#top_suburbs_chart', 'js/top_suburbs.vg.json')
+                .then(function(result) {})
+                .catch(console.error);
+        </script>
+    </body>
+</html>
