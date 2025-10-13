@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Pie chart of programming language usage proportions",
+  "data": {
+    "url": "https://github.com/dist0001/Data-Visualisation-Repository/raw/cec697d4ed15486579f07e3570e38b759d6dc592/A2%20Dashboard/data/language_sums.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "mark": {
+    "type": "arc",
+    "tooltip": true,
+    "outerRadius": 100
+  },
+  "encoding": {
+    "theta": {
+      "field": "Proportion",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Column",
+      "type": "nominal",
+      "legend": {
+        "title": "Language"
+      }
+    },
+    "tooltip": [
+      {"field": "Column", "type": "nominal", "title": "Language"},
+      {"field": "Sum", "type": "quantitative", "title": "Count"},
+      {"field": "Proportion", "type": "quantitative", "title": "Proportion", "format": ".2%"}
+    ]
+  },
+  "view": {"stroke": null},
+  "title": "Programming Language Usage (Pie Chart)"
+}

@@ -13,7 +13,7 @@
         crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
         
-        <!-- Your CSS file -->
+        <!-- CSS file -->
         <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
     </head>
 
@@ -78,11 +78,11 @@
                 .catch(console.error);
             
             // Placeholder for other charts - replace with your actual Vega files
-            vegaEmbed('#business_chart', 'js/business_distribution.vg.json')
+            vegaEmbed('#business_chart', 'js/pieChart.json')
                 .then(function(result) {})
                 .catch(console.error);
             
-            vegaEmbed('#jobs_chart', 'js/jobs_statistics.vg.json')
+            vegaEmbed('#jobs_chart', 'js/boxplot.vg.json')
                 .then(function(result) {})
                 .catch(console.error);
             
