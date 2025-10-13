@@ -1,0 +1,107 @@
+/* css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.dashboard-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    padding: 0 10px;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.chart-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+}
+
+#main_map {
+    height: 500px;
+    width: 100%;
+    min-height: 400px;
+}
+
+.side-chart {
+    height: 240px;
+    width: 100%;
+    min-height: 200px;
+}
+
+/* Ensure charts fill their containers */
+.vega-embed {
+    width: 100% !important;
+}
+
+.vega-embed-wrapper {
+    width: 100% !important;
+}
+
+/* PureCSS grid fixes */
+.pure-g {
+    letter-spacing: -0.31em; /* Reset letter-spacing for PureCSS */
+    *letter-spacing: normal; /* Restore letter-spacing for other elements */
+    word-spacing: -0.43em;
+}
+
+.pure-u-1,
+.pure-u-1-2,
+.pure-u-1-4 {
+    display: inline-block;
+    *display: inline; /* IE < 8 */
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .pure-u-1-2,
+    .pure-u-1-4 {
+        width: 100%;
+    }
+    
+    #main_map {
+        height: 400px;
+    }
+    
+    .side-chart {
+        height: 200px;
+    }
+    
+    .chart-container {
+        margin: 5px;
+        padding: 10px;
+    }
+}
+
+/* Your original symbol_map styling */
+#symbol_map {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}

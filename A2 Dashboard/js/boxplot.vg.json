@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 250,
+  "height": 400,
+  "title": "Distribution of Business Count and Job Count by Suburb",
+  "data": {
+    "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/data/completeDf_projected.csv"
+  },
+  "transform": [
+    { "filter": "isValid(datum.jobCount)" },
+    {
+      "fold": ["businessCount", "jobCount"],
+      "as": ["Metric", "Value"]
+    }
+  ],
+  "mark": "boxplot",
+  "encoding": {
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": null
+    },
+    "x": {
+      "field": "Metric",
+      "type": "nominal",
+      "title": null
+    },
+    "color": {
+      "field": "Metric",
+      "type": "nominal",
+      "legend": null
+    }
+  }
+}

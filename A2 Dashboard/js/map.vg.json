@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 450,
+  "height": 350,
+  "title": "Business Density and Job Distribution by Suburbs",
+  "projection": { "type": "mercator"},
+  
+  
+  "params": [
+    {
+      "name": "layerSelector",
+      "value": "both",
+      "bind": {
+        "input": "select",
+        "options": ["both", "choropleth"],
+        "labels": ["Map & Symbols", "Map Only"],
+        "name": "View: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "transform": [
+        { "filter": "layerSelector === 'both' || layerSelector === 'choropleth'" },
+        {
+          "lookup": "properties.SA2_NAME16",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/data/completeDf_projected.csv"
+            },
+            "key": "SA2_NAME16",
+            "fields": ["businessCount"]
+          },
+          "default": null
+        },
+        {
+          "calculate": "isValid(datum.businessCount) ? datum.businessCount + 0.1 : -1",
+          "as": "Business Density"
+        }
+      ],
+      "data": {
+        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/js/suburbMap.topojson",
+        "format": { "type": "topojson", "feature": "SA2_2016_AUST" }
+      },
+      "mark": { "type": "geoshape" },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum['Business Density'] > 0",
+            "field": "Business Density",
+            "type": "quantitative",
+            "scale": {
+              "type": "log",
+              "domain": [1, 2000, 9000],
+              "scheme": "yellowgreenblue"
+            }
+          },
+          "value": "#eeeeee"
+        },
+        "tooltip": [
+          { "field": "properties.SA2_NAME16", "type": "nominal", "title": "Suburb" },
+          { "field": "businessCount", "type": "quantitative", "title": "Business Count" }
+        ]
+      }
+    },
+    {
+      "transform": [
+        { "filter": "layerSelector === 'both' || layerSelector === 'choropleth'" }
+      ],
+      "data": {
+        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/js/suburbMap.topojson",
+        "format": { "type": "topojson", "feature": "ne_110m_graticules_10" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "gray",
+        "strokeWidth": 0.5,
+        "opacity": 0.3
+      }
+    },
+    {
+      "transform": [
+        { "filter": "layerSelector === 'both'" },
+        { "filter": "datum.jobCount > 0" }
+      ],
+      "data": {
+        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/data/completeDf_projected.csv"
+      },
+      "mark": { "type": "circle", "opacity": 0.5 },
+      "encoding": {
+        "longitude": { "field": "longitude", "type": "quantitative" },
+        "latitude": { "field": "latitude", "type": "quantitative" },
+        "size": {
+          "field": "jobCount",
+          "type": "quantitative",
+          "scale": {
+            "domain": [1, 1400],
+            "range": [100, 2000],
+            "domainMid": 1
+          },
+          "legend": {
+            "symbolType": "circle",
+            "title": "Data Science Job Count",
+            "values": [200, 600, 1000, 1400]
+          }
+        },
+        "color": { "value": "red" },
+        "tooltip": [
+          { "field": "SA2_NAME16", "type": "nominal", "title": "Suburb" },
+          { "field": "jobCount", "type": "quantitative", "title": "Jobs" }
+        ]
+      }
+    }
+  ]
+}
