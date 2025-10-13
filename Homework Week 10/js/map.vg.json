@@ -39,7 +39,7 @@
         }
       ],
       "data": {
-        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/3d53a6ffc94c6e083696d506232833d08d869418/Homework%20Week%2010/js/suburbMap.topojson",
+        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/js/suburbMap.topojson",
         "format": { "type": "topojson", "feature": "SA2_2016_AUST" }
       },
       "mark": { "type": "geoshape" },
@@ -68,7 +68,7 @@
         { "filter": "layerSelector === 'both' || layerSelector === 'choropleth'" }
       ],
       "data": {
-        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/3d53a6ffc94c6e083696d506232833d08d869418/Homework%20Week%2010/js/suburbMap.topojson",
+        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/js/suburbMap.topojson",
         "format": { "type": "topojson", "feature": "ne_110m_graticules_10" }
       },
       "mark": {
@@ -113,4 +113,5 @@
       }
     }
   ]
+
 }
