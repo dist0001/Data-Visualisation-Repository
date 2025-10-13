@@ -53,7 +53,7 @@
     "y": {
       "field": "jobCount",
       "type": "quantitative",
-      "title": "Data Science Job Count",
+      "title": "Job Count",
       "scale": { "type": "sqrt" },
       "axis": { "grid": false }
     },

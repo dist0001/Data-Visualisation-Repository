@@ -53,8 +53,7 @@
       },
       "legend": {
         "title": "Programming Languages",
-        "orient": "right",
-        "sort": {"field": "rank", "order": "ascending"}
+        "orient": "right"
       },
       "sort": {"field": "rank", "order": "ascending"}
     },
@@ -65,7 +64,7 @@
     "tooltip": [
       {"field": "Column", "type": "nominal", "title": "Language"},
       {"field": "Sum", "type": "quantitative", "title": "Count"},
-      {"field": "Proportion", "type": "quantitative", "title": "Proportion", "format": ".1%"}
+      {"field": "Proportion", "type": "quantitative", "title": "Proportion of Jobs", "format": ".1%"}
     ]
   },
   "view": {"stroke": null}

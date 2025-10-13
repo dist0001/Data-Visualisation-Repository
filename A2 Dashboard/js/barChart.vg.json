@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 250,
+  "height": 250,
+  "data": {
+    "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/main/A2%20Dashboard/data/topBusinessCounts.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Statistical.Areas.Level.2.2021.name",
+      "type": "nominal",
+      "title": "Suburb",
+      "sort": "-y",
+      "axis": {"labelAngle": -45, "labelLimit": 200}
+    },
+    "y": {
+      "field": "businessCount",
+      "type": "quantitative",
+      "title": "Business Count"
+    },
+    "color": {
+      "field": "businessCount",
+      "type": "quantitative",
+      "scale": {"scheme": "blues"},
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "Statistical.Areas.Level.2.2021.name",
+        "type": "nominal",
+        "title": "Suburb"
+      },
+      {
+        "field": "businessCount",
+        "type": "quantitative",
+        "title": "Business Count",
+        "format": ","
+      },
+      {
+        "field": "jobCount",
+        "type": "quantitative",
+        "title": "Job Count",
+        "format": ","
+      },
+      {
+        "field": "Area.in.square.kilometres",
+        "type": "quantitative",
+        "title": "Area (sq km)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "title": "Top 10 Suburbs by Business Count"
+}
