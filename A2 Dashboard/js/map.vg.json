@@ -26,7 +26,7 @@
           "lookup": "properties.SA2_NAME16",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/data/completeDf_projected.csv"
+              "url": "https://github.com/dist0001/Data-Visualisation-Repository/blob/18b7b7b64496ca2900bc39a6aa50625e8664acba/A2%20Dashboard/data/completeDf_projected.csv"
             },
             "key": "SA2_NAME16",
             "fields": ["businessCount"]
@@ -39,7 +39,7 @@
         }
       ],
       "data": {
-        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/js/suburbMap.topojson",
+        "url": "https://github.com/dist0001/Data-Visualisation-Repository/blob/18b7b7b64496ca2900bc39a6aa50625e8664acba/A2%20Dashboard/js/suburbMap.topojson",
         "format": { "type": "topojson", "feature": "SA2_2016_AUST" }
       },
       "mark": { "type": "geoshape" },
@@ -68,7 +68,7 @@
         { "filter": "layerSelector === 'both' || layerSelector === 'choropleth'" }
       ],
       "data": {
-        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/js/suburbMap.topojson",
+        "url": "https://github.com/dist0001/Data-Visualisation-Repository/blob/18b7b7b64496ca2900bc39a6aa50625e8664acba/A2%20Dashboard/js/suburbMap.topojson",
         "format": { "type": "topojson", "feature": "ne_110m_graticules_10" }
       },
       "mark": {
@@ -85,7 +85,7 @@
         { "filter": "datum.jobCount > 0" }
       ],
       "data": {
-        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/Homework%20Week%2010/data/completeDf_projected.csv"
+        "url": "https://github.com/dist0001/Data-Visualisation-Repository/blob/18b7b7b64496ca2900bc39a6aa50625e8664acba/A2%20Dashboard/data/completeDf_projected.csv"
       },
       "mark": { "type": "circle", "opacity": 0.5 },
       "encoding": {
