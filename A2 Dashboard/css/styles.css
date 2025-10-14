@@ -1,10 +1,15 @@
 /* css/styles.css */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #f8f9fa;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+    color: #333;
+    line-height: 1.5;
 }
 
 .dashboard-container {
@@ -20,6 +25,25 @@ body {
     padding: 0 10px;
 }
 
+.dashboard-title h1 {
+    font-family: 'Source Sans Pro', 'Inter', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.dashboard-title p {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .chart-container {
     background: white;
     border-radius: 8px;
@@ -33,9 +57,21 @@ body {
 .chart-title {
     text-align: center;
     margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #444;
+    font-family: 'Source Sans Pro', 'Inter', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #2d3748;
+    line-height: 1.3;
+}
+
+.chart-description {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #718096;
+    line-height: 1.4;
+    margin-top: 10px;
+    text-align: center;
 }
 
 #main_map {
@@ -62,7 +98,6 @@ body {
 /* PureCSS grid fixes */
 .pure-g {
     letter-spacing: -0.31em; /* Reset letter-spacing for PureCSS */
-    *letter-spacing: normal; /* Restore letter-spacing for other elements */
     word-spacing: -0.43em;
 }
 
@@ -70,7 +105,6 @@ body {
 .pure-u-1-2,
 .pure-u-1-4 {
     display: inline-block;
-    *display: inline; /* IE < 8 */
     zoom: 1;
     letter-spacing: normal;
     word-spacing: normal;
@@ -97,6 +131,18 @@ body {
         margin: 5px;
         padding: 10px;
     }
+    
+    .dashboard-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .dashboard-title p {
+        font-size: 1rem;
+    }
+    
+    .chart-title {
+        font-size: 1.1rem;
+    }
 }
 
 /* Your original symbol_map styling */
@@ -108,6 +154,7 @@ body {
 
 /* Custom slider styles */
 .vega-bind {
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 12px;
     margin: 8px 0;
     display: flex;
@@ -116,6 +163,7 @@ body {
 }
 
 .vega-bind-name {
+    font-family: 'Source Sans Pro', 'Inter', Arial, sans-serif;
     font-weight: 600;
     color: #333;
     min-width: 80px;

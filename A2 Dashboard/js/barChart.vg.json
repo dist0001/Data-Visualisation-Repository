@@ -6,14 +6,17 @@
     "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/A2%20Dashboard/data/topBusinessCounts.csv",
     "format": {"type": "csv"}
   },
+  "transform": [
+    {"sort": [{"field": "businessCount", "order": "descending"}]}
+  ],
   "mark": "bar",
   "encoding": {
     "x": {
       "field": "Suburb",
       "type": "nominal",
       "title": "Suburb",
-      "sort": "-y",
-      "axis": {"labelAngle": -45, "labelLimit": 100}
+      "sort": null,
+      "axis": {"labelAngle": -45, "labelLimit": 1000}
     },
     "y": {
       "field": "businessCount",
@@ -27,29 +30,10 @@
       "legend": null
     },
     "tooltip": [
-      {
-        "field": "Suburb",
-        "type": "nominal",
-        "title": "Suburb"
-      },
-      {
-        "field": "businessCount",
-        "type": "quantitative",
-        "title": "Business Count",
-        "format": ","
-      },
-      {
-        "field": "jobCount",
-        "type": "quantitative",
-        "title": "Job Count",
-        "format": ","
-      },
-      {
-        "field": "Area",
-        "type": "quantitative",
-        "title": "Area (sq km)",
-        "format": ".2f"
-      }
+      {"field": "Suburb", "type": "nominal", "title": "Suburb"},
+      {"field": "businessCount", "type": "quantitative", "title": "Business Count", "format": ","},
+      {"field": "jobCount", "type": "quantitative", "title": "Job Count", "format": ","},
+      {"field": "Area", "type": "quantitative", "title": "Area (sq km)", "format": ".2f"}
     ]
   }
 }
