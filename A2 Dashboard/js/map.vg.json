@@ -12,7 +12,7 @@
         "input": "select",
         "options": ["both", "choropleth"],
         "labels": ["Map & Symbols", "Map Only"],
-        "name": "View: "
+        "name": "Select Layer View: "
       }
     }
   ],
@@ -112,7 +112,7 @@
           },
           "legend": {
             "symbolType": "circle",
-            "title": "DS Job Count",
+            "title": "Job Count",
             "values": [200, 600, 1000, 1400]
           }
         },
