@@ -1,10 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 540,
-  "height": 450,
-  "projection": { "type": "mercator"},
-  
-  
+  "width": 525,
+  "height": 500,
+  "projection": { "type": "mercator" },
+
   "params": [
     {
       "name": "layerSelector",
@@ -17,7 +16,20 @@
       }
     }
   ],
+
   "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/A2%20Dashboard/js/suburbMap.topojson",
+        "format": { "type": "topojson", "feature": "SA2_2016_AUST" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eeeeee",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      }
+    },
     {
       "transform": [
         { "filter": "layerSelector === 'both' || layerSelector === 'choropleth'" },
@@ -54,7 +66,7 @@
               "scheme": "yellowgreenblue"
             }
           },
-          "value": "#eeeeee"
+          "value": null
         },
         "tooltip": [
           { "field": "properties.SA2_NAME16", "type": "nominal", "title": "Suburb" },

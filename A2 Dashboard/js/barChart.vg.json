@@ -1,22 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 250,
-  "height": 250,
+  "width": 235,
+  "height": 220,
   "data": {
     "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/A2%20Dashboard/data/topBusinessCounts.csv",
     "format": {"type": "csv"}
   },
-  "transform": [
-    {"sort": [{"field": "businessCount", "order": "descending"}]}
-  ],
+  "transform": [{"sort": [{"field": "businessCount", "order": "descending"}]}],
   "mark": "bar",
   "encoding": {
     "x": {
       "field": "Suburb",
       "type": "nominal",
-      "title": "Suburb",
+      "title": "",
       "sort": null,
-      "axis": {"labelAngle": -45, "labelLimit": 1000}
+      "axis": {"labelAngle": -45, "labelLimit": 300}
     },
     "y": {
       "field": "businessCount",
@@ -31,9 +29,24 @@
     },
     "tooltip": [
       {"field": "Suburb", "type": "nominal", "title": "Suburb"},
-      {"field": "businessCount", "type": "quantitative", "title": "Business Count", "format": ","},
-      {"field": "jobCount", "type": "quantitative", "title": "Job Count", "format": ","},
-      {"field": "Area", "type": "quantitative", "title": "Area (sq km)", "format": ".2f"}
+      {
+        "field": "businessCount",
+        "type": "quantitative",
+        "title": "Business Count",
+        "format": ","
+      },
+      {
+        "field": "jobCount",
+        "type": "quantitative",
+        "title": "Job Count",
+        "format": ","
+      },
+      {
+        "field": "Area",
+        "type": "quantitative",
+        "title": "Area (sq km)",
+        "format": ".2f"
+      }
     ]
   }
 }

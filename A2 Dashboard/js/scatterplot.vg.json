@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 250,
-  "height": 80,
+  "height": 100,
   "data": {
     "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/A2%20Dashboard/data/completeDf_projected.csv"
   },
@@ -32,48 +32,40 @@
     }
   ],
   "transform": [
-    { "filter": "isValid(datum.jobCount) && isValid(datum.businessCount)" },
+    {"filter": "isValid(datum.jobCount) && isValid(datum.businessCount)"},
     {
       "filter": "datum.businessCount <= max_business && datum.jobCount <= max_jobs"
     }
   ],
-  "mark": {
-    "type": "point",
-    "size": 50,
-    "opacity": 0.7
-  },
+  "mark": {"type": "circle", "size": 50, "opacity": 0.7},
   "encoding": {
     "x": {
       "field": "businessCount",
       "type": "quantitative",
       "title": "Business Count",
-      "scale": { "type": "sqrt" },
-      "axis": { "grid": false }
+      "scale": {"type": "sqrt"},
+      "axis": {"grid": false}
     },
     "y": {
       "field": "jobCount",
       "type": "quantitative",
       "title": "Job Count",
-      "scale": { "type": "sqrt" },
-      "axis": { "grid": false }
+      "scale": {"type": "sqrt"},
+      "axis": {"grid": false}
     },
-    "color": {
-      "field": "SA2_NAME16",
-      "type": "nominal",
-      "legend": null
-    },
+    "color": {"field": "SA2_NAME16", "type": "nominal", "legend": null},
     "tooltip": [
-      { "field": "SA2_NAME16", "type": "nominal", "title": "Suburb" },
-      { "field": "businessCount", "type": "quantitative", "title": "Business Count", "format": "," },
-      { "field": "jobCount", "type": "quantitative", "title": "Job Count", "format": "," }
+      {"field": "SA2_NAME16", "type": "nominal", "title": "Suburb"},
+      {
+        "field": "businessCount",
+        "type": "quantitative",
+        "title": "Business Count"
+      },
+      {
+        "field": "jobCount",
+        "type": "quantitative",
+        "title": "Job Count"
+      }
     ]
-  },
-  "config": {
-    "range": {
-      "category": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
-    },
-    "view": {
-      "stroke": "transparent"
-    }
   }
 }

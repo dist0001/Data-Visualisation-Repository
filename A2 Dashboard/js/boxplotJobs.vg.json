@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Boxplot of job counts across suburbs",
+  "width": 75,
+  "height": 235,
+  "data": {
+    "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/A2%20Dashboard/data/completeDf_projected.csv"
+  },
+  "transform": [
+    { "filter": "isValid(datum.jobCount)" }
+  ],
+  "mark": {
+    "type": "boxplot",
+    "size": 30
+  },
+  "encoding": {
+    "y": {
+      "field": "jobCount",
+      "type": "quantitative",
+      "title": "Job Count",
+      "scale": { "type": "sqrt" },
+      "axis": { "grid": false }
+    },
+    "color": {
+      "value": "#fb8072"
+    },
+    "tooltip": [
+      { "field": "jobCount", "type": "quantitative", "title": "Job Count", "format": "," },
+      { "field": "SA2_NAME16", "type": "nominal", "title": "Suburb" }
+    ]
+  },
+  "config": {
+    "view": { "stroke": "transparent" },
+    "axis": { "grid": false }
+  }
+}

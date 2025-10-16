@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Pie chart of programming language usage proportions",
-  "width": 300,
-  "height": 300,
+  "width": 215,
+  "height": 100,
   "data": {
     "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/cec697d4ed15486579f07e3570e38b759d6dc592/A2%20Dashboard/data/language_sums.csv",
     "format": {
@@ -22,8 +22,8 @@
   "mark": {
     "type": "arc",
     "tooltip": true,
-    "innerRadius": 50,
-    "outerRadius": 120
+    "innerRadius": 40,
+    "outerRadius": 80
   },
   "encoding": {
     "theta": {
@@ -37,22 +37,22 @@
       "type": "nominal",
       "scale": {
         "range": [
-          "#8dd3c7",
-          "#ffffb3", 
+          "#8e9f6a",
+          "#ffffb3",
           "#bebada",
           "#fb8072",
-          "#80b1d3",
+          "#ffb347",
           "#fdb462",
           "#b3de69",
           "#fccde5",
           "#d9d9d9",
           "#bc80bd",
-          "#ccebc5",
+          "#7e5a7a",
           "#ffed6f"
         ]
       },
       "legend": {
-        "title": "Programming Languages",
+        "title": "Languages",
         "orient": "right"
       },
       "sort": {"field": "rank", "order": "ascending"}

@@ -23,7 +23,7 @@
     <!-- Header -->
     <div class="pure-u-1">
         <div class="dashboard-title">
-            <h1>Business Density and Job Distribution Analysis</h1>
+            <h1>Business Density and Job Distribution Analysis across Australian Suburbs</h1>
             <p>Exploring the relationship between business presence and data science job opportunities across suburbs in Australia</p>
         </div>
     </div>
@@ -62,42 +62,52 @@
 
         <!-- Additional Chart Below Map -->
         <div class="chart-container">
-            <div class="chart-title">Average Job Count per Business</div>
-            <div id="centre_chart"></div>
-            <p class="chart-description">
-                This chart illustrates the average number of jobs per business across suburbs, helping identify areas with higher employment efficiency.
-            </p>
+            <!-- Footer Metadata -->
+            <div class="chart-footer">
+                <p><strong>Author:</strong> Daniel Istratoaie</p>
+                <p><strong>Date:</strong> 16/10/2025</p>
+                <p><strong>Data Sources:</strong></p>
+                <ul>
+                    <li>Data Science Jobs (Seek): <a href="https://www.kaggle.com/datasets/nomilk/data-science-job-listings-australia-20192020" target="_blank">Kaggle - Data Science Job Listings</a></li>
+                    <li>Business Data: <a href="https://digital.atlas.gov.au/datasets/digitalatlas::abs-economy-and-industry-data-by-region-sa2-november-2024/about" target="_blank">Digital Atlas - ABS Economy & Industry</a></li>
+                    <li>Australia Suburbs Geospatial Data: <a href="https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument" target="_blank">ABS - SA2 Boundaries</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- Right Side Charts -->
-    <div class="pure-u-1 pure-u-md-1-4">
-        <!-- Top Right Chart -->
-        <div class="chart-container">
-            <div class="chart-title">Business/Jobs Count Correlation</div>
-            <div id="scatter_plot" class="side-chart"></div>
-            <p class="chart-description">
-                This scatter plot visualises the correlation between business counts and job availability, helping identify potential employment hubs.
-            </p>
+   <!-- Right Side Charts -->
+<div class="pure-u-1 pure-u-md-1-4">
+    <!-- Top Right Dual Boxplot -->
+    <div class="chart-container dual-boxplot">
+        <div class="chart-title">Business & Job Listing Distribution</div>
+        <div class="boxplot-wrapper">
+            <div id="boxplot_bus" class="half-boxplot"></div>
+            <div id="boxplot_jobs" class="half-boxplot"></div>
         </div>
+        <p class="chart-description">
+            Side-by-side boxplots comparing the distribution of business counts and job counts across suburbs.
+        </p>
+    </div>
 
-        <!-- Bottom Right Chart -->
-        <div class="chart-container">
-            <div class="chart-title">Business & Job Listing Distribution</div>
-            <div id="business_job_dist" class="side-chart"></div>
-            <p class="chart-description">
-                Distribution of business and job listings across suburbs, showing variability and outliers in economic activity.
-            </p>
-        </div>
+    <!-- Bottom Right Chart -->
+    <div class="chart-container">
+        <div class="chart-title">Business/Jobs Count Correlation</div>
+        <div id="scatter_plot" class="side-chart"></div>
+        <p class="chart-description">
+            Correlation between business counts and job availability, highlighting potential employment hubs.
+        </p>
     </div>
 </div>
+
 
 <script type="text/javascript">
     vegaEmbed('#main_map', 'js/map.vg.json').then(function(result) {}).catch(console.error);
     vegaEmbed('#centre_chart', 'js/centreChart.vg.json').then(function(result) {}).catch(console.error);
     vegaEmbed('#scatter_plot', 'js/scatterplot.vg.json').then(function(result) {}).catch(console.error);
     vegaEmbed('#pie_chart', 'js/pieChart.vg.json').then(function(result) {}).catch(console.error);
-    vegaEmbed('#business_job_dist', 'js/boxplot.vg.json').then(function(result) {}).catch(console.error);
+    vegaEmbed('#boxplot_bus', 'js/boxplotBus.vg.json').then(function(result) {}).catch(console.error);
+    vegaEmbed('#boxplot_jobs', 'js/boxplotJobs.vg.json').then(function(result) {}).catch(console.error);
     vegaEmbed('#top_suburbs_chart', 'js/barChart.vg.json').then(function(result) {}).catch(console.error);
 </script>
 </body>

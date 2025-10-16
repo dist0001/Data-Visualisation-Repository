@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Boxplot of business counts across suburbs",
+  "width": 75,
+  "height": 235,
+  "data": {
+    "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/A2%20Dashboard/data/completeDf_projected.csv"
+  },
+  "transform": [
+    { "filter": "isValid(datum.businessCount)" }
+  ],
+  "mark": {
+    "type": "boxplot",
+    "size": 30
+  },
+  "encoding": {
+    "y": {
+      "field": "businessCount",
+      "type": "quantitative",
+      "title": "Business Count",
+      "scale": { "type": "sqrt" },
+      "axis": { "grid": false }
+    },
+    "color": {
+      "value": "#8dd3c7"
+    },
+    "tooltip": [
+      { "field": "businessCount", "type": "quantitative", "title": "Business Count", "format": "," },
+      { "field": "SA2_NAME16", "type": "nominal", "title": "Suburb" }
+    ]
+  },
+  "config": {
+    "view": { "stroke": "transparent" },
+    "axis": { "grid": false }
+  }
+}
