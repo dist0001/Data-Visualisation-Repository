@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 235,
-  "height": 220,
+  "height": 258,
   "data": {
     "url": "https://raw.githubusercontent.com/dist0001/Data-Visualisation-Repository/refs/heads/main/A2%20Dashboard/data/topBusinessCounts.csv",
     "format": {"type": "csv"}
